@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Entity", "WebApi.Entity\WebApi.Entity.csproj", "{2DF8FF7D-A666-4109-8268-3F593F8D85AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Plib", "WebApi.Plib\WebApi.Plib.csproj", "{43644613-F4F1-4D46-B8C5-439EF36524EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Web", "WebApi.Web\WebApi.Web.csproj", "{6EA555B0-3332-4BE0-B25A-719E1EA61F84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Utility", "WebApi.Utility\WebApi.Utility.csproj", "{95F74180-01F8-4F50-8305-C0BF4ED00CF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{8D8E0307-2DA1-4C8A-8F94-90416167B8AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseCheckUtility", "BaseCheckUtility\BaseCheckUtility.csproj", "{C81DA074-F6CE-45A0-92AC-BDFA1D49C88F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2DF8FF7D-A666-4109-8268-3F593F8D85AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DF8FF7D-A666-4109-8268-3F593F8D85AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DF8FF7D-A666-4109-8268-3F593F8D85AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DF8FF7D-A666-4109-8268-3F593F8D85AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43644613-F4F1-4D46-B8C5-439EF36524EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43644613-F4F1-4D46-B8C5-439EF36524EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43644613-F4F1-4D46-B8C5-439EF36524EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43644613-F4F1-4D46-B8C5-439EF36524EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EA555B0-3332-4BE0-B25A-719E1EA61F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EA555B0-3332-4BE0-B25A-719E1EA61F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EA555B0-3332-4BE0-B25A-719E1EA61F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EA555B0-3332-4BE0-B25A-719E1EA61F84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95F74180-01F8-4F50-8305-C0BF4ED00CF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F74180-01F8-4F50-8305-C0BF4ED00CF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95F74180-01F8-4F50-8305-C0BF4ED00CF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95F74180-01F8-4F50-8305-C0BF4ED00CF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D8E0307-2DA1-4C8A-8F94-90416167B8AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D8E0307-2DA1-4C8A-8F94-90416167B8AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D8E0307-2DA1-4C8A-8F94-90416167B8AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D8E0307-2DA1-4C8A-8F94-90416167B8AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C81DA074-F6CE-45A0-92AC-BDFA1D49C88F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C81DA074-F6CE-45A0-92AC-BDFA1D49C88F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C81DA074-F6CE-45A0-92AC-BDFA1D49C88F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C81DA074-F6CE-45A0-92AC-BDFA1D49C88F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {531BF3F3-5B9A-4DF6-BF7E-E5714C1C0D57}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://10.120.160.146:8080/tfs/kycxgs
+		SccProjectUniqueName0 = WebApi.Utility\\WebApi.Utility.csproj
+		SccProjectName0 = WebApi.Utility
+		SccLocalPath0 = WebApi.Utility
+		SccProjectUniqueName1 = WebApi.Web\\WebApi.Web.csproj
+		SccProjectName1 = WebApi.Web
+		SccLocalPath1 = WebApi.Web
+		SccLocalPath2 = .
+		SccProjectUniqueName3 = BaseCheckUtility\\BaseCheckUtility.csproj
+		SccProjectName3 = BaseCheckUtility
+		SccLocalPath3 = BaseCheckUtility
+		SccProjectUniqueName4 = Common\\Common.csproj
+		SccProjectName4 = Common
+		SccLocalPath4 = Common
+		SccProjectUniqueName5 = WebApi.Entity\\WebApi.Entity.csproj
+		SccProjectName5 = WebApi.Entity
+		SccLocalPath5 = WebApi.Entity
+		SccProjectUniqueName6 = WebApi.Plib\\WebApi.Plib.csproj
+		SccProjectName6 = WebApi.Plib
+		SccLocalPath6 = WebApi.Plib
+	EndGlobalSection
+EndGlobal

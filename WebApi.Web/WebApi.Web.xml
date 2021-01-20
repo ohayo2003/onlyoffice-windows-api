@@ -1,0 +1,826 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi.Web</name>
+    </assembly>
+    <members>
+        <member name="M:WebApi.Web.CachingSwaggerProvider.GetControllerDesc">
+            <summary>
+            从API文档中读取控制器描述
+            </summary>
+            <returns>所有控制器描述</returns>
+        </member>
+        <member name="T:WebApi.Web.Automapper.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WebApi.Web.Controllers.EditorController">
+            <summary>
+            公网：在线编辑和业务系统的交互
+            </summary>
+        </member>
+        <member name="M:WebApi.Web.Controllers.EditorController.GetConfig">
+            <summary>
+            获取config json
+            </summary>
+            <param name="pin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Web.Controllers.EditorController.GetHistoryList">
+            <summary>
+            版本历史，获取当前用户对应的版本列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Web.Controllers.EditorController.GetHistoryData(System.Int32)">
+            <summary>
+            版本历史，获取一个版本的详细数据
+            </summary>
+            <param name="varsionNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Web.Controllers.EditorController.GetDoc(System.String,System.String)">
+            <summary>
+            获取doc文件流
+            </summary>
+            <param name="pin"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Web.Controllers.EditorController.GetZip(System.String)">
+            <summary>
+            获取历史版本zip文件
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Web.Controllers.EditorController.SaveDoc(System.Object)">
+            <summary>
+            必须传递用户登录时的jwt，否则无效
+            </summary>
+            <param name="paramStr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApi.Web.Controllers.LocalOperationController">
+            <summary>
+            局域网：本地和业务系统的后台交互
+            </summary>
+        </member>
+        <member name="M:WebApi.Web.Controllers.LocalOperationController.DelFile(System.String,System.String,System.String)">
+            <summary>
+            删除文件
+            </summary>
+            <param name="clientId"></param>
+            <param name="businessId"></param>
+            <param name="UID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Web.Controllers.LocalOperationController.InitDoc(WebApi.Web.ViewModels.InitDocDto)">
+            <summary>
+            创建新文档
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Web.Controllers.LocalOperationController.GetDocInfo(System.String,System.String,System.Int32)">
+            <summary>
+            获取doc信息：
+            缺失version参数则返回最新版本
+            包括文件名、最后更新时间、最新版本号等
+            </summary>
+            <param name="businessId">业务唯一id swid</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Web.Controllers.LocalOperationController.GetAllHistory(System.String)">
+            <summary>
+            返回历史版本列表json
+            </summary>
+            <param name="businessId">业务唯一id swid</param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApi.Web.Controllers.LoginController">
+            <summary>
+            登录相关接口
+            </summary>
+        </member>
+        <member name="M:WebApi.Web.Controllers.LoginController.Post(WebApi.Web.ViewModels.UserLoginDto)">
+            <summary>
+            先查看dto内token是否有值
+            有则验证成功后追加到userinfo中，返回token和要打开的fileid
+            无则验证成功后，返回新的token和要打开的fileid
+            失败则返回错误信息
+            等待中呢？
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApi.Web.Controllers.CommonController">
+            <summary>
+            一些公共的接口
+            </summary>
+        </member>
+        <member name="M:WebApi.Web.Controllers.CommonController.Logout">
+            <summary>
+            用户登出
+            </summary>
+        </member>
+        <member name="T:WebApi.Web.Handler.CallActionStatus">
+            <summary>
+            执行http调用动作的枚举
+            仅代表call动作本身的成败
+            </summary>
+        </member>
+        <member name="M:WebApi.Web.Handler.DocConfig.#ctor(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String)">
+            组员：user_mode=0 ，其他随意
+            
+            组长：user_mode=1 user_edit_privilege=1  user_comment_privilege=0      
+            
+            教师：user_mode=1 user_edit_privilege=0   user_comment_privilege=1
+        </member>
+        <member name="M:WebApi.Web.Handler.UsersHandlers.CheckIP">
+            检测用户IP是否合法
+        </member>
+        <member name="M:WebApi.Web.Handler.UsersHandlers.GetClientIP">
+            <summary>
+            获取用户IP
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Web.Handler.UsersHandlers.GetWebUserIP">
+            <summary>
+            得到用户外网IP
+            默认取第一个IP
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Web.Handler.UsersHandlers.FilterLocalIP(System.String)">
+            <summary>
+            过滤内网ip
+            </summary>
+            <param name="ips"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Web.Handler.UsersHandlers.IsIPAddress(System.String)">
+            <summary>
+            判断是否是IP地址格式 0.0.0.0
+            </summary>
+            <param name="str1">待判断的IP地址</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:WebApi.Web.Handler.UsersHandlers.GetCache(System.String)">
+            <summary>
+            通过pin获取user
+            </summary>
+            <param name="pin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Web.Handler.UsersHandlers.SetCache(WebApi.Plib.UserIdentity)">
+            <summary>
+            
+            </summary>
+            <param name="userinfo"></param>
+            <returns></returns>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.InitDocDto.client_id">
+            <summary>
+            访问editor的业务系统标志
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.InitDocDto.uid">
+            <summary>
+            访问editor的业务系统中用户的唯一标识
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.InitDocDto.user_name">
+            <summary>
+            师生name
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.InitDocDto.user_rolename">
+             <summary>
+            访问者角色名
+             </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.InitDocDto.title">
+            <summary>
+            文章标题
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.InitDocDto.businessId">
+            <summary>
+            业务唯一id swid
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.InitDocDto.UploadType">
+            <summary>
+            UploadType，1在线创建，2本地上传
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.InitDocDto.FtpPath">
+            <summary>
+            本地上的FtpPath路径
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.InitDocDto.signature">
+            <summary>
+            md5签名
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestReviewDto.Result">
+            <summary>
+            审核或者执行撤稿的结果
+            1 成功 0 失败
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestReviewDto.ErrorList">
+            <summary>
+            错误的列表 执行撤稿不需要赋值
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.Reader_Get_Input.downloadType">
+            <summary>
+            下载类型：
+            1原文件
+            2转换为pdf的文件
+            3合并批注后的文件
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.AnnotationDto.FileID">
+            <summary>
+            文件唯一标识
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.AnnotationDto.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.AnnotationDto.SourcesID">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.AnnotationDto.PageNumber">
+            <summary>
+            当前页数
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.SystemLogDto.UserName">
+            <summary>
+            日志电话
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.SystemLogDto.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.SystemLogDto.IPAddress">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.SystemLogDto.BeginTime">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.SystemLogDto.EndTime">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.TeacherCreateDto.UserAccount">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.TeacherCreateDto.Dname">
+            <summary>
+            域名
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.BasicSearchDto.PageIndex">
+            <summary>
+            第几页
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.BasicSearchDto.PageSize">
+            <summary>
+            每页条数
+            </summary>
+        </member>
+        <member name="T:WebApi.Web.ViewModels.UploadFileGenerateTokenInputs">
+            <summary>
+            上传前提交必要的信息字段
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UploadFileGenerateTokenInputs.UploadFileType">
+            <summary>
+            上传文件类型
+            1为域名logo
+            2为学生上传的文件
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UploadFileGenerateTokenInputs.FileOriginalName">
+            <summary>
+            上传的文件名，带后缀
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UploadFileGenerateTokenInputs.BatchID">
+            <summary>
+            上传文件的批次（后台关联用）
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.ActivityCreateDto.ActivityName">
+            <summary>
+            活动名
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.ActivityCreateDto.Category">
+            <summary>
+            活动的范围
+            0为私有活动 仅本校可见
+            1为公开活动 全部可见
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.ActivityCreateDto.ActivityStatement">
+            <summary>
+            本次活动的详细说明
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.ActivityCreateDto.AcceptedFileExtension">
+            <summary>
+            本次活动上传文件的格式要求
+            用逗号隔开比如： jpg,png,jpeg
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.ActivityChangeDto.ID">
+            <summary>
+            活动ID
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.ActivityChangeDto.ActivityName">
+            <summary>
+            活动名
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.ActivityChangeDto.ActivityStatement">
+            <summary>
+            本次活动的详细说明
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.ActivityChangeDto.Comment">
+            <summary>
+            本次活动的评论
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.ActivityChangeDto.AcceptedFileExtension">
+            <summary>
+            本次活动上传文件的格式要求
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.ActivitySearchDto.IsSchoolOrMan">
+            <summary>
+            活动所属 1为学校 0为商家
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.ActivitySearchDto.IsSelf">
+            <summary>
+            对于校管理员和商家，1为本人创建的活动，0为他人的
+            对学生 1为本校创建的活动，0为他校的
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.ActivitySearchDto.Category">
+            <summary>
+            活动类型 1为公共的 0为私有的 不填写则为全部
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.ActivitySearchDto.ActivityName">
+            <summary>
+            活动名称搜索
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.StudentWorkInActivityDtoSearchDto.ID">
+            <summary>
+            活动ID
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.StudentWorkInActivityDtoSearchDto.Status">
+            <summary>
+            0代表已删除
+            1 可用
+            2 已通过认证
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.StudentWorkInActivityDtoSearchDto.Tag">
+            <summary>
+            作品标题
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UploadFileInfo.FileName">
+            <summary>
+            上传的文件名带后缀
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UploadFileInfo.FileGuid">
+            <summary>
+            生成的guid
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestCreateDto.RequesterName">
+            <summary>
+            申请人姓名
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestCreateDto.RequesterPhoneNum">
+            <summary>
+            申请人电话
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestCreateDto.RequesterOrganisation">
+            <summary>
+            申请人组织
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestCreateDto.PersonIdentification">
+            <summary>
+            身份证明
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestCreateDto.ArticleName">
+            <summary>
+            待撤文章名称
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestCreateDto.Author">
+            <summary>
+            作者
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestCreateDto.Publication">
+            <summary>
+            发表刊物/比对库
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestCreateDto.PublishTime">
+            <summary>
+            上传文件的发表日期
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestCreateDto.UnitIdentification">
+            <summary>
+            单位证明
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestCreateDto.CheckReport">
+            <summary>
+            检测报告单
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestCreateDto.ArticleLocation">
+            <summary>
+            待撤文章位置
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.AgainRequestCreateDto.RequestID">
+            <summary>
+            申请ID
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.AgainRequestCreateDto.RequesterName">
+            <summary>
+            申请人姓名
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.AgainRequestCreateDto.RequesterPhoneNum">
+            <summary>
+            申请人电话
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.AgainRequestCreateDto.RequesterOrganisation">
+            <summary>
+            申请人组织
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.AgainRequestCreateDto.PersonIdentification">
+            <summary>
+            身份证明
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.AgainRequestCreateDto.ArticleName">
+            <summary>
+            待撤文章名称
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.AgainRequestCreateDto.Author">
+            <summary>
+            作者
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.AgainRequestCreateDto.Publication">
+            <summary>
+            发表刊物/比对库
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.AgainRequestCreateDto.PublishTime">
+            <summary>
+            上传文件的发表日期
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.AgainRequestCreateDto.UnitIdentification">
+            <summary>
+            单位证明
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.AgainRequestCreateDto.CheckReport">
+            <summary>
+            检测报告单
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.AgainRequestCreateDto.ArticleLocation">
+            <summary>
+            待撤文章位置
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestSearchDto.CheckStatus">
+            <summary>
+            执行撤稿失败 -2,
+            审核失败 -1,
+            待审核 0,
+            审核处理成功 1,
+            执行撤稿成功 2
+            比如要获取所有的类型list，传入 -2，-1，0，1，2
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestSearchDto.RequesterName">
+            <summary>
+            申请人姓名
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestSearchDto.RequesterPhoneNum">
+            <summary>
+            申请人电话号码
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestSearchDto.RequesterOrganisation">
+            <summary>
+            申请人组织
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestSearchDto.ArticleName">
+            <summary>
+            待撤文章名称
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestSearchDto.Author">
+            <summary>
+            作者
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestSearchDto.Publication">
+            <summary>
+            发表刊物/比对库
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestSearchDto.PublishTimeBegin">
+            <summary>
+            发布开始日期
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestSearchDto.PublishTimeEnd">
+            <summary>
+            发布结束日期
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestSearchDto.Order">
+            <summary>
+            列表排序 
+            0 为按时间升序，旧的在前面
+            1 为按时间降序
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestCountSearchDto.CountType">
+             <summary>
+            按年/月统计,year是年，month是月
+             </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestCountSearchDto.BeginTime">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequestCountSearchDto.EndTime">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.SchoolAdminCreateDto.UserAccount">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.SchoolAdminCreateDto.Dname">
+            <summary>
+            域名
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.SchoolAdminCreateDto.BatchID">
+            <summary>
+            上传logo的BatchID
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.StudentSearchDto.ID">
+            <summary>
+            学生ID
+            </summary>
+        </member>
+        <member name="T:WebApi.Web.ViewModels.UserLoginDto">
+            <summary>
+            <remarks>
+            登录的参数
+            </remarks>
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UserLoginDto.client_id">
+            <summary>
+            访问reader的业务系统标志
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UserLoginDto.user_key">
+            <summary>
+            访问reader的业务系统中用户的唯一标识
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UserLoginDto.user_name">
+            <summary>
+            师生name
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UserLoginDto.user_rolename">
+             <summary>
+            访问者角色名
+             </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UserLoginDto.user_mode">
+            <summary>
+            editor模式：
+            0为view
+            1位edit
+            
+            组员：user_mode=0 ，其他随意
+            
+            组长：user_mode=1 user_edit_privilege=1  user_comment_privilege=0      
+            
+            教师：user_mode=1 user_edit_privilege=0   user_comment_privilege=1
+            
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UserLoginDto.user_edit_privilege">
+            <summary>
+            编辑权限
+            0为不可读
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UserLoginDto.user_comment_privilege">
+            <summary>
+            评论权限
+            0为不可写
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UserLoginDto.business_id">
+            <summary>
+            业务唯一id  swid
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UserLoginDto.check_code">
+            <summary>
+            签名用
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UserLoginDto.pin">
+            <summary>
+            保持token值;未登录则置为""
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequesterCreateDto.PhoneNum">
+            <summary>
+            电话号码
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequesterCreateDto.VCode">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="T:WebApi.Web.ViewModels.ReFindPwdCodeDto">
+            <summary>
+            找回密码验证验证码
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.ReFindPwdCodeDto.PhoneNum">
+            <summary>
+            电话号码
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.ReFindPwdCodeDto.VCode">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.RequesterGetCodeDto.PhoneNum">
+            <summary>
+            电话号码
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UserListUpdatePWDDto.UserID">
+            <summary>
+            UserID
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UserListUpdatePWDDto.OldPWD">
+            <summary>
+            旧密码
+            </summary>
+        </member>
+        <member name="P:WebApi.Web.ViewModels.UserListUpdatePWDDto.NewPWD">
+            <summary>
+            新密码
+            </summary>
+        </member>
+        <member name="T:WebApi.web.Helper.AuthorizedRolesAttribute">
+            <summary>
+            执行人是否在该可执行动作允许的角色范围内
+            </summary>
+        </member>
+        <member name="M:WebApi.web.Helper.FileResult.ConvertFileName(System.String,System.String)">
+            <summary>
+            修正firefox导出excel名字乱码的问题
+            </summary>
+            <param name="fileName"></param>
+            <param name="agent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.web.Helper.FileResult2.ConvertFileName(System.String,System.String)">
+            <summary>
+            修正firefox导出excel名字乱码的问题
+            </summary>
+            <param name="fileName"></param>
+            <param name="agent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.web.Helper.FtpUpDownFiles.UploadFile(System.String,System.String,System.String@,System.String@)">
+            <summary>
+            上传文件
+            </summary>
+            <param name="localPath"></param>
+            <param name="ftpPath"></param>
+            <param name="message"></param>
+            <param name="ftpConnStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.web.Helper.FtpUpDownFiles.FtpDownLoadFile2Local(System.String,System.String,System.String)">
+            <summary>
+            根据ftpInfo是否为emptty，来判断使用哪种形式的ftp
+            </summary>
+            <param name="ftpConn"></param>
+            <param name="ftpPath"></param>
+            <param name="localPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.web.Helper.JsonWebTokenUtilitys.CreateJwtToken(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            创建token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.web.Helper.JsonWebTokenUtilitys.ValidateJwtToken(System.String)">
+            <summary>
+            校验解析token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.web.Helper.JsonWebTokenUtilitys.getValue(System.String)">
+            <summary>
+            json字符串转Dictionary
+            </summary>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.web.Helper.PageResult.#ctor(System.Net.Http.HttpRequestMessage,System.Boolean,System.String,System.Object,System.Boolean)">
+            <summary>
+            返回消息需要标准格式化
+            </summary>
+            <param name="isSuccess">true or false </param>
+            <param name="message">成功则返回对应的消息或者结果实体列表，失败则返回失败的msg</param>
+            <param name="request"></param>
+        </member>
+        <member name="T:WebApi.web.Helper.ValidateModelAttribute">
+            <summary>
+            创建时才需要验证，
+            search则不需要增加此特性
+            </summary>
+        </member>
+    </members>
+</doc>
